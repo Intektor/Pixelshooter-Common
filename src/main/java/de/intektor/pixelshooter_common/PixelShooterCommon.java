@@ -23,5 +23,7 @@ public class PixelShooterCommon {
         PacketRegistry.INSTANCE.registerPacket(ServerShutdownPacketToClient.class, 11);
         PacketRegistry.INSTANCE.registerPacket(ClientVersionPacketToServer.class, 12);
         PacketRegistry.INSTANCE.registerPacket(UnsupportedClientVersionPacketToClient.class, 13);
+        PacketRegistry.INSTANCE.registerPacket(CampaignWorldsUpdateRequestPacketToServer.class, 14);
+        PacketRegistry.INSTANCE.registerPacket(CampaignWorldsUpdateRequestResponseToClient.class, 15);
     }
 }

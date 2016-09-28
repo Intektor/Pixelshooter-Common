@@ -1,5 +1,6 @@
 package de.intektor.pixelshooter_common.net.packet;
 
+import de.intektor.pixelshooter_common.common.Serializable;
 import de.intektor.pixelshooter_common.files.pstf.PSTagCompound;
 import de.intektor.pixelshooter_common.packet.Packet;
 
@@ -53,7 +54,7 @@ public class BrowseCommunityLevelsLevelRequestToServer implements Packet {
         userData.readFromStream(in);
     }
 
-    public static class Order {
+    public static class Order implements Serializable{
         public OrderType type;
         public String lastOfficialID;
         public String search;
@@ -74,6 +75,7 @@ public class BrowseCommunityLevelsLevelRequestToServer implements Packet {
             MORE
         }
 
+        @Override
         public void writeToTag(PSTagCompound tag) {
             tag.setInteger("type", type.ordinal());
             tag.setString("lastOfficialID", lastOfficialID);
@@ -81,6 +83,7 @@ public class BrowseCommunityLevelsLevelRequestToServer implements Packet {
             tag.setString("userFilter", userFilter);
         }
 
+        @Override
         public void readFromTag(PSTagCompound tag) {
             type = OrderType.values()[tag.getInteger("type")];
             lastOfficialID = tag.getString("lastOfficialID");

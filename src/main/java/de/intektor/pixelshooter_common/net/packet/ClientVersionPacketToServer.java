@@ -1,6 +1,6 @@
 package de.intektor.pixelshooter_common.net.packet;
 
-import de.intektor.pixelshooter_common.common.ClientVersion;
+import de.intektor.pixelshooter_common.common.Version;
 import de.intektor.pixelshooter_common.files.pstf.PSTagCompound;
 import de.intektor.pixelshooter_common.packet.Packet;
 
@@ -13,12 +13,12 @@ import java.io.IOException;
  */
 public class ClientVersionPacketToServer implements Packet {
 
-    public ClientVersion version;
+    public Version version;
 
     public ClientVersionPacketToServer() {
     }
 
-    public ClientVersionPacketToServer(ClientVersion version) {
+    public ClientVersionPacketToServer(Version version) {
         this.version = version;
     }
 
@@ -33,7 +33,7 @@ public class ClientVersionPacketToServer implements Packet {
     public void read(DataInputStream in) throws IOException {
         PSTagCompound tag = new PSTagCompound();
         tag.readFromStream(in);
-        version = new ClientVersion();
+        version = new Version();
         version.readFromTag(tag);
     }
 }
