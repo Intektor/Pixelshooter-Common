@@ -30,7 +30,7 @@ public class Version implements Serializable {
     @Override
     public void readFromTag(PSTagCompound tag) {
         major = tag.getInteger("major");
-        minor = tag.getInteger("major");
+        minor = tag.getInteger("minor");
         revision = tag.getInteger("revision");
     }
 
